@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 library Math{
@@ -9,7 +10,7 @@ library Math{
         return a<b?a:b;
     }
     function factorial(uint256 n)public pure returns(uint256){
-       
+       require(n <= 77, "Input too large");
         if(n==0 || n==1){
             return 1;
         }
@@ -20,7 +21,12 @@ library Math{
         return res;
     }
     function fibonacci(uint256 n)public pure returns(uint256){
+       
+       require(n <= 100, "Input too large for Fibonacci");
+        if(n==0)return 0;
+        if (n == 1) return 1;
         uint256 current = 1;
+        
         uint256 prev = 0;
         for(uint256 i=2;i<=n;i++){
             uint256 next =prev+current;
